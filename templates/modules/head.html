@@ -165,7 +165,17 @@
 
     <!-- 关于统计-->
     <script th:if="${#strings.contains(theme.config.about.widgetList,'statistics-map')}" th:src="${assets_link + '/libs/countup/countup.js'}"></script>
-
+       <!-- mathjax数学渲染-->
+       <script>
+        MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+          }
+        };
+        </script>
+        <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+        </script>
     <!-- 小板报 -->
     <th:block th:if="${not #strings.isEmpty(theme.config.sidebar.welcome.key)}">
         <script defer th:if="${#strings.contains(theme.config.sidebar.widgetss.indexWidgets,'welcome') ||
